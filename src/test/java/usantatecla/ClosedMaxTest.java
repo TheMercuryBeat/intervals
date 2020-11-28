@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ClosedMaxTest extends MaxTest {
 
     @Override
-    protected Max createMax() {
+    protected SubInterval createMax() {
         return new ClosedMax(this.point.getEquals());
     }
 
     @Test
     @Override
-    public void givenMaxWhenIsWithinWithEqualsValue() {
-        assertTrue(this.max.isWithin(this.point.getEquals()));
+    public void givenSubIntervalWhenIsWithinWithEqualsValue() {
+        assertTrue(this.subInterval.isWithin(this.point.getEquals()));
     }
 
 }

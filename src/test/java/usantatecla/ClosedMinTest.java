@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ClosedMinTest extends MinTest {
 
     @Override
-    protected Min createMin() {
+    protected SubInterval createMin() {
         return new ClosedMin(this.point.getEquals());
     }
 
     @Test
     @Override
-    public void givenMinWhenIsWithinWithEqualsValue() {
-        assertTrue(this.min.isWithin(this.point.getEquals()));
+    public void givenSubIntervalWhenIsWithinWithEqualsValue() {
+        assertTrue(this.subInterval.isWithin(this.point.getEquals()));
     }
 
 }

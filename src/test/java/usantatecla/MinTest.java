@@ -6,34 +6,36 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MinTest {
+public class MinTest extends SubIntervalTest {
 
-    protected Min min;
     protected Point point;
 
     @BeforeEach
     public void before() {
         this.point = new Point(4.4);
-        this.min = this.createMin();
+        this.subInterval = this.createMin();
     }
 
-    protected Min createMin() {
+    protected SubInterval createMin() {
         return new Min(this.point.getEquals());
     }
 
     @Test
-    public void givenMinWhenIsWithinWithLessValueThenTrue() {
-        assertFalse(this.min.isWithin(this.point.getLess()));
+    @Override
+    public void givenSubIntervalWhenIsWithinWithLessValue() {
+        assertFalse(this.subInterval.isWithin(this.point.getLess()));
     }
 
     @Test
-    public void givenMinWhenIsWithinWithEqualsValue() {
-        assertFalse(this.min.isWithin(this.point.getEquals()));
+    @Override
+    public void givenSubIntervalWhenIsWithinWithEqualsValue() {
+        assertFalse(this.subInterval.isWithin(this.point.getEquals()));
     }
 
     @Test
-    public void givenMinWhenIsWithinWithGreaterValueThenTrue() {
-        assertTrue(this.min.isWithin(this.point.getGreater()));
+    @Override
+    public void givenSubIntervalWhenIsWithinWithGreaterValue() {
+        assertTrue(this.subInterval.isWithin(this.point.getGreater()));
     }
 
 }
