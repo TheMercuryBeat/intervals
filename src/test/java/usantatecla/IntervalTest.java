@@ -192,10 +192,19 @@ public class IntervalTest {
     }
 
     @Test
-    public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenOpenIsInsideThenShouldIntersect() {
+    public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenOpenIsInsideByLeftThenShouldIntersect() {
 
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getLess()).build();
+
+        assertTrue(firstInterval.intersects(secondInterval));
+    }
+
+    @Test
+    public void givenFirstIntervalOpenOpenWhenSecondIntervalClosedOpenIsInsideByRightThenShouldIntersect() {
+
+        Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.left.getGreater()).open(this.right.getEquals()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
     }
