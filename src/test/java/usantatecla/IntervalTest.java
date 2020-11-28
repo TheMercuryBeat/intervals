@@ -107,7 +107,7 @@ public class IntervalTest {
         Interval firstInterval = intervalBuilderInstance().closed(this.left.getEquals()).open(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).open(this.left.getEquals()).build();
 
-        assertTrue(firstInterval.intersects(secondInterval));
+        assertFalse(firstInterval.intersects(secondInterval));
     }
 
     @Test
@@ -116,7 +116,7 @@ public class IntervalTest {
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).closed(this.left.getEquals()).build();
 
-        assertTrue(firstInterval.intersects(secondInterval));
+        assertFalse(firstInterval.intersects(secondInterval));
     }
 
     @Test
@@ -125,7 +125,7 @@ public class IntervalTest {
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).closed(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().open(this.right.getEquals()).open(this.right.getGreater()).build();
 
-        assertTrue(firstInterval.intersects(secondInterval));
+        assertFalse(firstInterval.intersects(secondInterval));
     }
 
     @Test
@@ -134,7 +134,7 @@ public class IntervalTest {
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().closed(this.right.getEquals()).open(this.right.getGreater()).build();
 
-        assertTrue(firstInterval.intersects(secondInterval));
+        assertFalse(firstInterval.intersects(secondInterval));
     }
 
     public static IntervalBuilder intervalBuilderInstance() {
