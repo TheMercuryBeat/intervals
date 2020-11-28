@@ -2,8 +2,8 @@ package usantatecla;
 
 public class IntervalBuilder {
 
-    private Min min;
-    private Max max;
+    private SubInterval min;
+    private SubInterval max;
     private boolean minConfigured;
     private boolean maxConfigured;
 
@@ -14,7 +14,7 @@ public class IntervalBuilder {
 
     public IntervalBuilder open(double value) {
         assert !this.minConfigured || !this.maxConfigured;
-        ;
+
         if (!this.minConfigured) {
             this.min = new Min(value);
             this.minConfigured = true;
@@ -27,7 +27,7 @@ public class IntervalBuilder {
 
     public IntervalBuilder closed(double value) {
         assert !this.minConfigured || !this.maxConfigured;
-        ;
+
         if (!this.minConfigured) {
             this.min = new ClosedMin(value);
             this.minConfigured = true;
