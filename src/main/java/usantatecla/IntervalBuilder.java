@@ -16,10 +16,10 @@ public class IntervalBuilder {
         assert !this.minConfigured || !this.maxConfigured;
 
         if (!this.minConfigured) {
-            this.min = new Min(value);
+            this.min = new OpenedMin(value);
             this.minConfigured = true;
         } else if (!this.maxConfigured) {
-            this.max = new Max(value);
+            this.max = new OpenedMax(value);
             this.maxConfigured = true;
         }
         return this;

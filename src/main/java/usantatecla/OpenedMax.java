@@ -1,18 +1,18 @@
 package usantatecla;
 
-public class Min extends SubInterval {
+public class OpenedMax extends SubInterval {
 
-    public Min(double value) {
+    public OpenedMax(double value) {
         super(value);
     }
 
     public boolean isWithin(double value) {
-        return this.value < value;
+        return this.value > value;
     }
 
     @Override
     public String toString() {
-        return "(" + this.value;
+        return this.value + ")";
     }
 
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ClosedMinTest extends MinTest {
+public class ClosedMinTest extends OpenedMinTest {
 
     @Override
     protected SubInterval createMin() {
