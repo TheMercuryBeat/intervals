@@ -146,6 +146,15 @@ public class IntervalTest {
         assertTrue(firstInterval.intersects(secondInterval));
     }
 
+    @Test
+    public void givenFirstIntervalOpenClosedWhenSecondIntervalClosedOpenByTheRightThenShouldIntersect() {
+
+        Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).closed(this.right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().closed(this.right.getEquals()).open(this.right.getGreater()).build();
+
+        assertTrue(firstInterval.intersects(secondInterval));
+    }
+
     public static IntervalBuilder intervalBuilderInstance() {
         return new IntervalBuilder();
     }
