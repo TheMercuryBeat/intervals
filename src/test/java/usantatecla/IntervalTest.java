@@ -76,7 +76,6 @@ public class IntervalTest {
 
         assertFalse(firstInterval.intersects(secondInterval));
 
-
     }
 
     public static IntervalBuilder intervalBuilderInstance() {
