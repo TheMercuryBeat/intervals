@@ -130,6 +130,19 @@ public class IntervalTest {
 
     }
 
+    @Test
+    public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenClosedByTheLeftThenShouldIntersect() {
+
+        Point left = getPoint(-3.3);
+        Point right = getPoint(-2.2);
+
+        Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).closed(right.getEquals()).build();
+
+        assertTrue(firstInterval.intersects(secondInterval));
+
+    }
+
     public static IntervalBuilder intervalBuilderInstance() {
         return new IntervalBuilder();
     }
