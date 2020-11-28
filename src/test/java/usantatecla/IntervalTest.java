@@ -150,7 +150,7 @@ public class IntervalTest {
         Point right = getPoint(6.6);
 
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).closed(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).closed(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).open(right.getEquals()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
 
