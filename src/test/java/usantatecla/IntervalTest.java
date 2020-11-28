@@ -68,113 +68,77 @@ public class IntervalTest {
     @Test
     public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenOpenByTheLeftThenShouldNotIntersect() {
 
-        Point left = getPoint(-3.3);
-        Point right = getPoint(-2.2);
-
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).open(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).open(this.left.getEquals()).build();
 
         assertFalse(firstInterval.intersects(secondInterval));
-
     }
 
     @Test
     public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenOpenByTheLeftThenShouldIntersect() {
 
-        Point left = getPoint(-3.3);
-        Point right = getPoint(-2.2);
-
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).open(right.getGreater()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).open(this.left.getGreater()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
-
     }
 
     @Test
     public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenOpenByTheRightThenShouldNotIntersect() {
 
-        Point left = getPoint(4.4);
-        Point right = getPoint(7.7);
-
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).open(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.right.getEquals()).open(this.right.getGreater()).build();
 
         assertFalse(firstInterval.intersects(secondInterval));
-
     }
 
     @Test
     public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenOpenByTheRightThenShouldIntersect() {
 
-        Point left = getPoint(4.4);
-        Point right = getPoint(7.7);
-
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getLess()).open(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.right.getLess()).open(this.right.getGreater()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
-
     }
 
     @Test
     public void givenFirstIntervalClosedOpenWhenSecondIntervalOpenOpenByTheLeftThenShouldIntersect() {
 
-        Point left = getPoint(-3.3);
-        Point right = getPoint(-2.2);
-
         Interval firstInterval = intervalBuilderInstance().closed(this.left.getEquals()).open(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).open(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).open(this.left.getEquals()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
-
     }
 
     @Test
     public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenClosedByTheLeftThenShouldIntersect() {
 
-        Point left = getPoint(-3.3);
-        Point right = getPoint(-2.2);
-
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).closed(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).closed(this.left.getEquals()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
-
     }
 
     @Test
-    public void givenFirstIntervalOpenClosedWhenSecondIntervalOpenOpenTheLeftThenShouldIntersect() {
-
-        Point left = getPoint(4.4);
-        Point right = getPoint(6.6);
+    public void givenFirstIntervalOpenClosedWhenSecondIntervalOpenOpenTheRightThenShouldIntersect() {
 
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).closed(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().open(left.getEquals()).open(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().open(this.right.getEquals()).open(this.right.getGreater()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
-
     }
 
     @Test
-    public void givenFirstIntervalOpenOpenWhenSecondIntervalClosedOpenTheLeftThenShouldIntersect() {
-
-        Point left = getPoint(4.4);
-        Point right = getPoint(6.6);
+    public void givenFirstIntervalOpenOpenWhenSecondIntervalClosedOpenTheRightThenShouldIntersect() {
 
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
-        Interval secondInterval = intervalBuilderInstance().closed(left.getEquals()).open(right.getEquals()).build();
+        Interval secondInterval = intervalBuilderInstance().closed(this.right.getEquals()).open(this.right.getGreater()).build();
 
         assertTrue(firstInterval.intersects(secondInterval));
-
     }
 
     public static IntervalBuilder intervalBuilderInstance() {
         return new IntervalBuilder();
-    }
-
-    public Point getPoint(double value) {
-        return new Point(value);
     }
 
 }
