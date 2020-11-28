@@ -102,7 +102,7 @@ public class IntervalTest {
     }
 
     @Test
-    public void givenFirstIntervalClosedOpenWhenSecondIntervalOpenOpenByTheLeftThenShouldIntersect() {
+    public void givenFirstIntervalClosedOpenWhenSecondIntervalOpenOpenByTheLeftThenShouldNotIntersect() {
 
         Interval firstInterval = intervalBuilderInstance().closed(this.left.getEquals()).open(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).open(this.left.getEquals()).build();
@@ -111,7 +111,7 @@ public class IntervalTest {
     }
 
     @Test
-    public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenClosedByTheLeftThenShouldIntersect() {
+    public void givenFirstIntervalOpenOpenWhenSecondIntervalOpenClosedByTheLeftThenShouldNotIntersect() {
 
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().open(this.left.getLess()).closed(this.left.getEquals()).build();
@@ -120,7 +120,7 @@ public class IntervalTest {
     }
 
     @Test
-    public void givenFirstIntervalOpenClosedWhenSecondIntervalOpenOpenTheRightThenShouldIntersect() {
+    public void givenFirstIntervalOpenClosedWhenSecondIntervalOpenOpenTheRightThenShouldNotIntersect() {
 
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).closed(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().open(this.right.getEquals()).open(this.right.getGreater()).build();
@@ -129,7 +129,7 @@ public class IntervalTest {
     }
 
     @Test
-    public void givenFirstIntervalOpenOpenWhenSecondIntervalClosedOpenTheRightThenShouldIntersect() {
+    public void givenFirstIntervalOpenOpenWhenSecondIntervalClosedOpenTheRightThenShouldNotIntersect() {
 
         Interval firstInterval = intervalBuilderInstance().open(this.left.getEquals()).open(this.right.getEquals()).build();
         Interval secondInterval = intervalBuilderInstance().closed(this.right.getEquals()).open(this.right.getGreater()).build();
