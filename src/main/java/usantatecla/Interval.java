@@ -16,7 +16,7 @@ public class Interval {
     }
 
     public boolean intersects(Interval interval) {
-        return this.min.isWithin(interval.max.value);
+        return this.min.value < interval.max.value && this.max.value > interval.min.value;
     }
 
     @Override
